@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>木村このみ | 事業成長コンサルタント</title>
+    <meta name="description" content="価値が正しく伝わると、事業は前へ進む。事業成長コンサルタント 木村このみの公式ページです。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy-dark: #1a2942;
+            --yellow-accent: #facc15;
+            --bg-light: #ffffff;
+            --text-main: #334155;
+        }
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            line-height: 1.8;
+        }
+        .font-mincho {
+            font-family: 'Shippori Mincho', serif;
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.8)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .text-navy { color: var(--navy-dark); }
+        .bg-navy { background-color: var(--navy-dark); }
+        .text-yellow { color: var(--yellow-accent); }
+        .bg-yellow { background-color: var(--yellow-accent); }
+        .border-navy { border-color: var(--navy-dark); }
+        .border-yellow { border-color: var(--yellow-accent); }
+        
+        .decoration-dot {
+            width: 10px;
+            height: 10px;
+            background-color: var(--yellow-accent);
+            display: inline-block;
+            border-radius: 50%;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background-color: var(--yellow-accent);
+            margin: 1.5rem auto 0;
+        }
+        .image-container img {
+            background-color: #f1f5f9;
+            min-height: 200px;
+        }
+        /* フロー用矢印スタイル */
+        .step-card::after {
+            content: '\f061';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--navy-dark);
+            font-size: 1.2rem;
+            z-index: 10;
+        }
+        .step-card:last-child::after { display: none; }
+        @media (max-width: 767px) {
+            .step-card::after {
+                right: auto;
+                bottom: -25px;
+                left: 50%;
+                transform: translateX(-50%) rotate(90deg);
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md transition-all duration-300 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0">
+                    <a href="#" class="font-mincho font-bold text-xl text-navy tracking-[0.2em] uppercase">Konomi Kimura</a>
+                </div>
+                <div class="hidden md:flex space-x-10 items-center">
+                    <a href="#about" class="text-xs font-bold text-navy hover:text-yellow-600 transition tracking-widest uppercase">My Style</a>
+                    <a href="#service" class="text-xs font-bold text-navy hover:text-yellow-600 transition tracking-widest uppercase">Service</a>
+                    <a href="#works" class="text-xs font-bold text-navy hover:text-yellow-600 transition tracking-widest uppercase">Works</a>
+                    <a href="javascript:void(0)" onclick="openContactForm()" class="bg-yellow text-navy px-8 py-3 rounded-full text-xs font-bold hover:bg-amber-400 transition shadow-sm tracking-widest uppercase">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-navy focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <a href="#about" class="block px-6 py-4 text-sm font-bold text-navy border-b border-gray-50 uppercase tracking-widest">MY STYLE</a>
+            <a href="#service" class="block px-6 py-4 text-sm font-bold text-navy border-b border-gray-50 uppercase tracking-widest">SERVICE</a>
+            <a href="#works" class="block px-6 py-4 text-sm font-bold text-navy border-b border-gray-50 uppercase tracking-widest">WORKS</a>
+            <a href="javascript:void(0)" onclick="openContactForm()" class="block px-6 py-4 text-sm font-bold text-navy bg-yellow uppercase tracking-widest text-center">CONTACT</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-bg h-screen min-h-[700px] flex items-center px-6">
+        <div class="max-w-7xl mx-auto w-full">
+            <div class="max-w-3xl animate-fade-in">
+                <div class="flex items-center space-x-4 mb-6">
+                    <span class="w-12 h-[2px] bg-yellow"></span>
+                    <span class="text-xs font-bold tracking-[0.2em] text-navy uppercase">PR / マーケティングを用いた事業成長支援</span>
+                </div>
+                <h1 class="font-mincho text-4xl md:text-6xl font-bold leading-[1.4] mb-10 text-navy tracking-wider">
+                    価値が正しく伝わると、<br>
+                    事業は前へ進む。
+                </h1>
+                <p class="text-base md:text-lg text-slate-500 leading-loose mb-12 max-w-xl font-medium">
+                    企業が大切にしてきた想い・強み・背景を<br class="hidden md:block">“言語化し、届けるべき相手に届ける”<br><br>
+                    その結果として認知・信頼・接点が増え、事業が確実に動き出す—<br><br>
+                    このプロセスに本気で向き合い、伴走します。
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="javascript:void(0)" onclick="openContactForm()" class="inline-block bg-yellow text-navy px-12 py-5 rounded-full font-bold text-sm hover:bg-amber-400 transition shadow-xl tracking-widest text-center">
+                        <i class="fas fa-paper-plane mr-2"></i> お問い合わせはこちら
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section: Style -->
+    <section id="about" class="py-24 bg-white overflow-hidden">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <span class="text-xs font-bold tracking-[0.4em] text-yellow-600 uppercase block mb-4">My Style</span>
+                <h2 class="font-mincho text-3xl font-bold text-navy section-title underline-yellow">「PRやマーケティング施策をやるかどうか」の前に</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="relative">
+                    <div class="absolute -top-10 -left-10 w-32 h-32 bg-yellow/30 rounded-full blur-3xl"></div>
+                    <p class="font-mincho text-2xl md:text-3xl font-bold text-navy leading-relaxed relative z-10 mb-8">
+                        私が最初に向き合うのは<br>
+                        <span class="border-b-8 border-yellow/40">「施策以前の問い」</span>
+                    </p>
+                    <div class="mt-8 space-y-6">
+                        <div class="flex items-start">
+                            <span class="decoration-dot mt-2 mr-4 shrink-0"></span>
+                            <p class="text-slate-600 font-medium">なぜ今、PRに関心を持ったのか</p>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="decoration-dot mt-2 mr-4 shrink-0"></span>
+                            <p class="text-slate-600 font-medium">その先に、どんな成長を描いているのか</p>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="decoration-dot mt-2 mr-4 shrink-0"></span>
+                            <p class="text-slate-600 font-medium">事業の強みは、きちんと思葉になっているか</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-navy p-10 md:p-14 text-white rounded-3xl shadow-2xl relative border-t-8 border-yellow">
+                    <h3 class="font-mincho text-xl md:text-2xl font-bold mb-8 tracking-widest leading-relaxed">
+                        目的から問い直し、<br>
+                        手段を選ぶ。<br>
+                        それが私の支援です。
+                    </h3>
+                    <ul class="space-y-5 text-sm md:text-base text-slate-300">
+                        <li class="flex items-center"><i class="fas fa-check-circle mr-3 text-yellow text-lg"></i>施策ありきではなく、経営の目的から入る</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle mr-3 text-yellow text-lg"></i>PR・イベント・協業など、多角的な切り口</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle mr-3 text-yellow text-lg"></i>作業者ではなく、参謀としての伴走</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="py-24 bg-slate-50 border-t border-slate-100">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-xs font-bold tracking-[0.4em] text-yellow-600 uppercase block mb-4">Solution</span>
+                <h2 class="font-mincho text-3xl font-bold text-navy section-title">事業成長を阻む「3つの不足」</h2>
+                <p class="mt-8 text-slate-500 max-w-2xl mx-auto">多くの事業が直面するボトルネックを解消し、拡大のサイクルを回します。</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-24">
+                <!-- 認知不足 -->
+                <div class="bg-white p-10 rounded-2xl shadow-sm border-t-4 border-yellow">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="font-bold text-navy text-2xl">認知不足</h3>
+                        <span class="text-navy text-2xl"><i class="fas fa-bullhorn"></i></span>
+                    </div>
+                    <p class="font-mincho text-lg text-navy mb-6 font-bold leading-relaxed">事業の強みは<br>伝わっていますか？</p>
+                    <p class="text-sm text-slate-500 leading-loose mb-8">「まずは知ってもらう」ための情報発信や外部露出を最大化し、認知度を向上させます。</p>
+                    <div class="bg-slate-50 p-4 rounded-lg">
+                        <p class="text-[10px] font-bold text-navy tracking-widest uppercase mb-2">主なアプローチ</p>
+                        <p class="text-xs text-slate-500 font-medium">自社の効果的継続的な情報発信・メディア露出・SNS発信等</p>
+                    </div>
+                </div>
+
+                <!-- 信頼不足 -->
+                <div class="bg-white p-10 rounded-2xl shadow-sm border-t-4 border-yellow">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="font-bold text-navy text-2xl">信頼不足</h3>
+                        <span class="text-navy text-2xl"><i class="fas fa-shield-alt"></i></span>
+                    </div>
+                    <p class="font-mincho text-lg text-navy mb-6 font-bold leading-relaxed">比較検討の段階で<br>負けていませんか？</p>
+                    <p class="text-sm text-slate-500 leading-loose mb-8">メディア掲載や専門的発信、他企業との協業により「ここなら安心」と思われる社会的信頼を構築します。</p>
+                    <div class="bg-slate-50 p-4 rounded-lg">
+                        <p class="text-[10px] font-bold text-navy tracking-widest uppercase mb-2">主なアプローチ</p>
+                        <p class="text-xs text-slate-500 font-medium">メディアや他企業とのタッグによる第三者評価、専門性訴求、事例公開等</p>
+                    </div>
+                </div>
+
+                <!-- 接点不足 -->
+                <div class="bg-white p-10 rounded-2xl shadow-sm border-t-4 border-yellow">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="font-bold text-navy text-2xl">接点不足</h3>
+                        <span class="text-navy text-2xl"><i class="fas fa-handshake"></i></span>
+                    </div>
+                    <p class="font-mincho text-lg text-navy mb-6 font-bold leading-relaxed">顧客と”出会う機会”は<br>作れていますか？</p>
+                    <p class="text-sm text-slate-500 leading-loose mb-8">ターゲットとの出会いを創出。イベントや異業種協業などを通じ、事業に共感する人との縁をつくります。</p>
+                    <div class="bg-slate-50 p-4 rounded-lg">
+                        <p class="text-[10px] font-bold text-navy tracking-widest uppercase mb-2">主なアプローチ</p>
+                        <p class="text-xs text-slate-500 font-medium">自社主催イベント開催・セミナー・業界イベント出店・他社との協業施策等</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step Flow -->
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-12">
+                    <h3 class="font-mincho text-2xl font-bold text-navy">支援の全体像</h3>
+                    <p class="mt-4 text-sm text-slate-500">現状把握から実行まで、一貫した動線設計で着実に前へ進めます。</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4 relative mb-12">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 relative step-card text-center">
+                        <span class="text-[10px] font-bold text-yellow-600 block mb-2 uppercase tracking-widest">Phase 01</span>
+                        <h4 class="font-bold text-navy text-sm">現状把握・課題整理</h4>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 relative step-card text-center">
+                        <span class="text-[10px] font-bold text-yellow-600 block mb-2 uppercase tracking-widest">Phase 02</span>
+                        <h4 class="font-bold text-navy text-sm">言語化・戦略設計</h4>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 relative step-card text-center">
+                        <span class="text-[10px] font-bold text-yellow-600 block mb-2 uppercase tracking-widest">Phase 03</span>
+                        <h4 class="font-bold text-navy text-sm">施策実行・伴走</h4>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 relative step-card text-center">
+                        <span class="text-[10px] font-bold text-yellow-600 block mb-2 uppercase tracking-widest">Phase 04</span>
+                        <h4 class="font-bold text-navy text-sm">成長・拡大のサイクルへ</h4>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="inline-block px-8 py-3 bg-navy text-white rounded-full text-sm font-bold tracking-widest shadow-lg">
+                        “事業成長のための動線設計”として一貫支援
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Service Menu -->
+    <section id="service" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <span class="text-xs font-bold tracking-[0.4em] text-yellow-600 uppercase block mb-4">Service Menu</span>
+                <h2 class="font-mincho text-3xl font-bold text-navy section-title">具体的な支援プラン</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="group bg-slate-50 p-12 border-b-4 border-slate-100 hover:border-yellow transition duration-500 relative shadow-sm">
+                    <span class="absolute top-8 right-10 text-6xl font-black text-slate-200 group-hover:text-yellow/20 transition duration-500 italic">01</span>
+                    <h3 class="font-mincho text-2xl font-bold text-navy mb-8 relative flex items-center">
+                        <span class="w-8 h-[2px] bg-yellow mr-4"></span>壁打ち・構想整理
+                    </h3>
+                    <p class="text-slate-500 text-sm mb-10 leading-loose">
+                        経営者との対話により、事業の目的・価値・方向性を言語化します。どのフェーズでどの施策が適切かを客観的に整理し、迷いをなくします。
+                    </p>
+                    <div class="border-t border-slate-200 pt-8">
+                        <span class="text-[10px] font-bold tracking-widest text-slate-400 uppercase block mb-2">Price</span>
+                        <p class="text-navy font-bold text-2xl font-mincho">50,000円 <span class="text-xs font-normal text-slate-400 font-sans">（税別）／ 90分</span></p>
+                    </div>
+                </div>
+                <div class="group bg-slate-50 p-12 border-b-4 border-slate-100 hover:border-yellow transition duration-500 relative shadow-sm">
+                    <span class="absolute top-8 right-10 text-6xl font-black text-slate-200 group-hover:text-yellow/20 transition duration-500 italic">02</span>
+                    <h3 class="font-mincho text-2xl font-bold text-navy mb-8 relative flex items-center">
+                        <span class="w-8 h-[2px] bg-yellow mr-4"></span>立ち上げ・継続伴走
+                    </h3>
+                    <p class="text-slate-500 text-sm mb-10 leading-loose">
+                        新事業の立ち上げ期から参画し、PR・マーケティング・協業まで、一気通貫の動線設計と実務の実行支援を粘り強く行います。
+                    </p>
+                    <div class="border-t border-slate-200 pt-8">
+                        <span class="text-[10px] font-bold tracking-widest text-slate-400 uppercase block mb-2">Price</span>
+                        <p class="text-navy font-bold text-2xl font-mincho">月額 200,000円 <span class="text-xs font-normal text-slate-400 font-sans">（税別）〜</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Works -->
+    <section id="works" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <span class="text-xs font-bold tracking-[0.4em] text-yellow-600 uppercase block mb-4">Works</span>
+                <h2 class="font-mincho text-3xl font-bold text-navy section-title">支援実績</h2>
+            </div>
+
+            <div class="bg-navy p-10 md:p-20 rounded-[3rem] text-white relative overflow-hidden border-b-[12px] border-yellow shadow-2xl">
+                <div class="absolute -top-20 -right-20 w-80 h-80 bg-yellow/10 rounded-full blur-[100px]"></div>
+                
+                <h3 class="font-mincho text-xl md:text-3xl font-bold text-center mb-16 tracking-widest leading-relaxed">
+                    業界・業種問わず、<br>「強い思いを持つ企業」を支援しています
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-16 gap-x-12">
+                    <div class="relative">
+                        <div class="flex items-center space-x-3 mb-6">
+                            <span class="w-3 h-3 bg-yellow rounded-full"></span>
+                            <h4 class="text-xs font-bold tracking-[0.3em] uppercase text-yellow">toB BUSINESS</h4>
+                        </div>
+                        <ul class="space-y-4 text-sm leading-loose opacity-90 font-medium">
+                            <li>遊びのプラットフォーム運営会社</li>
+                            <li>オープンイノベーション支援会社</li>
+                        </ul>
+                    </div>
+                    <div class="relative">
+                        <div class="flex items-center space-x-3 mb-6">
+                            <span class="w-3 h-3 bg-yellow rounded-full"></span>
+                            <h4 class="text-xs font-bold tracking-[0.3em] uppercase text-yellow">toC BUSINESS</h4>
+                        </div>
+                        <ul class="space-y-4 text-sm leading-loose opacity-90 font-medium">
+                            <li>障がい者就労支援施設運営会社</li>
+                            <li>ヘアメイク会社 / 都内女子短大</li>
+                        </ul>
+                    </div>
+                    <div class="relative">
+                        <div class="flex items-center space-x-3 mb-6">
+                            <span class="w-3 h-3 bg-yellow rounded-full"></span>
+                            <h4 class="text-xs font-bold tracking-[0.3em] uppercase text-yellow">Shop & EC</h4>
+                        </div>
+                        <ul class="space-y-4 text-sm leading-loose opacity-90 font-medium">
+                            <li>飲食店 / チョコレート専門店</li>
+                            <li>衣装専門店</li>
+                        </ul>
+                    </div>
+                    <div class="relative">
+                        <div class="flex items-center space-x-3 mb-6">
+                            <span class="w-3 h-3 bg-yellow rounded-full"></span>
+                            <h4 class="text-xs font-bold tracking-[0.3em] uppercase text-yellow">Individuals</h4>
+                        </div>
+                        <ul class="space-y-4 text-sm leading-loose opacity-90 font-medium">
+                            <li>日本酒プロモーション活動家</li>
+                            <li>発達専門小児科医 / 大道芸人</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section id="about-profile" class="py-24 bg-white border-t border-slate-50">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row gap-20 items-center mb-24">
+                <div class="w-full md:w-2/5 relative">
+                    <div class="aspect-[4/5] bg-slate-100 relative group overflow-hidden rounded-2xl shadow-xl image-container">
+                        <img src="https://lh3.googleusercontent.com/u/0/d/1YTR1PzDVKUiuaE3qWNWx_HfynfEu_37s=w1200-h1200" 
+                             alt="木村このみ プロフィール写真" 
+                             onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-full text-slate-400 text-xs font-bold\'>[Profile Image]</div>'"
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-yellow/20 rounded-full -z-10"></div>
+                </div>
+                <div class="w-full md:w-3/5">
+                    <div class="mb-6">
+                        <span class="text-xs font-bold tracking-widest text-yellow-600 uppercase mb-2 block tracking-widest">事業成長コンサルタント</span>
+                        <span class="text-[10px] font-bold tracking-[0.1em] text-slate-400 uppercase block tracking-[0.2em]">PR / マーケティング支援</span>
+                    </div>
+                    <h2 class="font-mincho text-4xl font-bold text-navy mb-4">木村 このみ</h2>
+                    <p class="text-xs font-bold text-navy/40 tracking-[0.4em] mb-10 uppercase">Konomi Kimura</p>
+                    
+                    <div class="space-y-8">
+                        <div class="text-base leading-relaxed text-slate-600 font-medium space-y-6">
+                            <p>大学でマーケティングを学び単身タイ バンコクへ。海外での店舗運営を通じて、現場・顧客・スタッフと直接向き合う経験を積む中で、「価値は伝わらなければ選ばれない」という事業の本質に直面。</p>
+                            <p>帰国後、コロナ禍をきっかけに発信の必要性を実感。独学で企業広報を学び、自ら企画した取り組みが全国放送に取り上げられるなど伝え方が事業成長に直結する経験を重ねる。</p>
+                            <p>転職した大手企業の広報部では、組織的な発信設計や社内調整を担当。</p>
+                            <p>現在は、現場と経営の双方を理解した視点を活かし、事業の価値を言語化し、成長につながる伴走型支援を行っている。</p>
+                            <p class="text-navy font-bold border-l-4 border-yellow pl-4 mt-8">
+                                PRプロフェッショナル協会認定PRプロデューサー<br>
+                                パートナー型戦略コンサルタント
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Message Section -->
+            <div class="bg-slate-50 p-8 md:p-16 rounded-[2rem] border-t border-slate-100 shadow-sm relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-yellow/5 rounded-full -mr-16 -mt-16"></div>
+                <div class="max-w-3xl mx-auto">
+                    <div class="text-center mb-8">
+                        <span class="text-xs font-bold tracking-[0.5em] text-yellow-600 uppercase block mb-4">Message</span>
+                        <h3 class="font-mincho text-xl md:text-2xl font-bold text-navy mb-12 text-center leading-relaxed border-b border-yellow/30 pb-6 inline-block tracking-widest">
+                            事業の価値が正しく伝わり、前に進む支援を。
+                        </h3>
+                    </div>
+                    <div class="space-y-8 text-slate-600 font-medium leading-loose text-center md:text-left">
+                        <p>これまでの支援の中で、</p>
+                        <p class="text-navy text-lg italic bg-white inline-block px-4 py-2 rounded shadow-sm font-bold">
+                            「迷いなく外側の景色を一緒に見に行こうとしてくれる」
+                        </p>
+                        <br>
+                        <p class="text-navy text-lg italic bg-white inline-block px-4 py-2 rounded shadow-sm font-bold">
+                            「単に事業を整理して外に見せる、そんな枠に収まるものではなかった」
+                        </p>
+                        <p>という声をいただきました。<br>
+                        PRやマーケティングは目的ではなく、事業成長のための手段。</p>
+                        <p>経営者と対話しながら事業の価値を言語化し、成長につながる形で社会とつなげていく支援を行っています。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact-bottom" class="py-32 bg-navy text-white text-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <div class="absolute top-20 left-20 w-96 h-96 border-2 border-white rounded-full"></div>
+            <div class="absolute bottom-10 right-10 w-64 h-64 border-4 border-yellow rounded-full"></div>
+        </div>
+        
+        <div class="max-w-4xl mx-auto px-6 relative z-10">
+            <span class="text-xs font-bold tracking-[0.5em] text-yellow uppercase block mb-6">Contact</span>
+            <h2 class="font-mincho text-3xl md:text-5xl font-bold mb-10 tracking-widest leading-tight">まずは、お問い合わせから。</h2>
+            <p class="text-slate-300 text-sm md:text-lg leading-loose mb-16 max-w-xl mx-auto font-medium">
+                課題が整理できていなくても構いません。<br>
+                「どうすれば、次の成長につながるか」を共に考えます。
+            </p>
+            <a href="javascript:void(0)" onclick="openContactForm()" class="inline-block bg-yellow text-navy px-16 py-6 rounded-full font-bold text-sm md:text-lg hover:bg-amber-400 transition shadow-2xl tracking-[0.2em]">
+                お問い合わせはこちら
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-20 border-t border-slate-50">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="font-mincho text-xl md:text-2xl text-navy mb-12 tracking-[0.3em] leading-loose font-bold">
+                意味のある成長を、共につくる。
+            </p>
+            <p class="text-[10px] font-bold tracking-widest text-slate-300 uppercase">&copy; Konomi Kimura All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // --- 設定エリア: GoogleフォームのURL ---
+        const GOOGLE_FORM_URL = "https://forms.gle/thWdvmoJYHYFRBi96"; 
+
+        function openContactForm() {
+            if (GOOGLE_FORM_URL === "" || GOOGLE_FORM_URL === "#") {
+                // 万が一URLが空の場合のフォールバック
+                console.warn("Google Form URL is not set.");
+            } else {
+                window.open(GOOGLE_FORM_URL, '_blank');
+            }
+        }
+
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
