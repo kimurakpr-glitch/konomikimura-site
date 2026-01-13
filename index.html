@@ -26,11 +26,30 @@
         .font-mincho {
             font-family: 'Shippori Mincho', serif;
         }
+        /* ヒーロー背景（モノトーン加工） */
         .hero-bg {
-            background-image: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.8)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            position: relative;
             background-size: cover;
             background-position: center;
         }
+        .hero-bg::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url('https://lh3.googleusercontent.com/d/1A8EA2pxBXh18PX6GN0j-rIqH1ObSjCyt');
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(100%); /* モノトーン化 */
+            z-index: -1;
+        }
+        .hero-bg::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.75));
+            z-index: -1;
+        }
+        
         .text-navy { color: var(--navy-dark); }
         .bg-navy { background-color: var(--navy-dark); }
         .text-yellow { color: var(--yellow-accent); }
@@ -139,45 +158,82 @@
 
     <!-- Section: Style -->
     <section id="about" class="py-24 bg-white overflow-hidden">
-        <div class="max-w-5xl mx-auto px-6">
-            <div class="text-center mb-20">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
                 <span class="text-xs font-bold tracking-[0.4em] text-yellow-600 uppercase block mb-4">My Style</span>
-                <h2 class="font-mincho text-3xl font-bold text-navy section-title underline-yellow">「PRやマーケティング施策をやるかどうか」の前に</h2>
+                <h2 class="font-mincho text-3xl font-bold text-navy section-title">「PRやマーケティング施策をやるかどうか」の前に</h2>
             </div>
             
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div class="relative">
-                    <div class="absolute -top-10 -left-10 w-32 h-32 bg-yellow/30 rounded-full blur-3xl"></div>
-                    <p class="font-mincho text-2xl md:text-3xl font-bold text-navy leading-relaxed relative z-10 mb-8">
+            <div class="space-y-16">
+                <!-- Phase 1: The Question -->
+                <div class="text-center">
+                    <p class="font-mincho text-2xl md:text-4xl font-bold text-navy leading-relaxed mb-8">
                         私が最初に向き合うのは<br>
                         <span class="border-b-8 border-yellow/40">「施策以前の問い」</span>
                     </p>
-                    <div class="mt-8 space-y-6">
-                        <div class="flex items-start">
-                            <span class="decoration-dot mt-2 mr-4 shrink-0"></span>
-                            <p class="text-slate-600 font-medium">なぜ今、PRに関心を持ったのか</p>
-                        </div>
-                        <div class="flex items-start">
-                            <span class="decoration-dot mt-2 mr-4 shrink-0"></span>
-                            <p class="text-slate-600 font-medium">その先に、どんな成長を描いているのか</p>
-                        </div>
-                        <div class="flex items-start">
-                            <span class="decoration-dot mt-2 mr-4 shrink-0"></span>
-                            <p class="text-slate-600 font-medium">事業の強みは、きちんと思葉になっているか</p>
-                        </div>
+                    <div class="max-w-2xl mx-auto">
+                        <p class="text-slate-600 font-medium leading-loose mb-8 text-left md:text-center">
+                            多くの場合、最初の相談は「PRやマーケティングをやりたい」という話ではありません。<br><br>
+                            売上は立っている。事業も回っている。<br>
+                            それでも、次の成長が見えない。<br>
+                            そんな違和感から、話は始まります。
+                        </p>
                     </div>
                 </div>
-                <div class="bg-navy p-10 md:p-14 text-white rounded-3xl shadow-2xl relative border-t-8 border-yellow">
-                    <h3 class="font-mincho text-xl md:text-2xl font-bold mb-8 tracking-widest leading-relaxed">
+
+                <!-- Phase 2: Points -->
+                <div class="bg-slate-50 p-8 md:p-12 rounded-[2rem] border-l-8 border-yellow max-w-3xl mx-auto shadow-sm">
+                    <ul class="space-y-6">
+                        <li class="flex items-start">
+                            <span class="decoration-dot mt-2 mr-4 shrink-0"></span>
+                            <p class="text-slate-600 text-base md:text-lg font-medium">なぜ今、成長に迷いが生まれているのか</p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="decoration-dot mt-2 mr-4 shrink-0"></span>
+                            <p class="text-slate-600 text-base md:text-lg font-medium">事業の価値は、きちんと言葉になっているか</p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="decoration-dot mt-2 mr-4 shrink-0"></span>
+                            <p class="text-slate-600 text-base md:text-lg font-medium">その強みは、正しく届く形になっているか</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Phase 3: The Means -->
+                <div class="text-center">
+                    <p class="text-slate-600 font-medium leading-loose text-lg mb-12">
+                        PRやマーケティングは、その答えが見えた先にある<br class="hidden lg:block">「意味のある手段」
+                    </p>
+                    <div class="inline-block animate-bounce text-navy/20">
+                        <i class="fas fa-chevron-down text-3xl"></i>
+                    </div>
+                </div>
+
+                <!-- Phase 4: The Core Support -->
+                <div class="bg-navy p-10 md:p-16 text-white rounded-[3rem] shadow-2xl relative border-t-8 border-yellow max-w-4xl mx-auto text-center">
+                    <h3 class="font-mincho text-2xl md:text-4xl font-bold mb-10 tracking-widest leading-relaxed">
                         目的から問い直し、<br>
                         手段を選ぶ。<br>
                         それが私の支援です。
                     </h3>
-                    <ul class="space-y-5 text-sm md:text-base text-slate-300">
-                        <li class="flex items-center"><i class="fas fa-check-circle mr-3 text-yellow text-lg"></i>施策ありきではなく、経営の目的から入る</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle mr-3 text-yellow text-lg"></i>PR・イベント・協業など、多角的な切り口</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle mr-3 text-yellow text-lg"></i>作業者ではなく、参謀としての伴走</li>
-                    </ul>
+                    
+                    <div class="grid md:grid-cols-3 gap-8 text-left border-t border-white/10 pt-12">
+                        <div class="space-y-3">
+                            <p class="text-yellow font-bold text-sm tracking-widest mb-1">経営視点</p>
+                            <p class="text-white font-bold">施策ありきではなく、<br>経営の目的から入る</p>
+                            <p class="text-xs text-slate-400 leading-relaxed">「何をやるか」の前に「何のためにやるか」を徹底して明確にします。</p>
+                        </div>
+                        <div class="space-y-3">
+                            <p class="text-yellow font-bold text-sm tracking-widest mb-1">多角的視点</p>
+                            <p class="text-white font-bold">メディア掲載・イベント・協業策などあらゆる切り口を模索</p>
+                            <p class="text-xs text-slate-400 leading-relaxed">手法を限定せず、事業成長に最も効果的なアプローチを選択します。</p>
+                        </div>
+                        <div class="space-y-3">
+                            <p class="text-yellow font-bold text-sm tracking-widest mb-1">伴走視点</p>
+                            <p class="text-white font-bold">作業者ではなく、<br>参謀としての伴走</p>
+                            <p class="text-xs text-slate-400 leading-relaxed">言われたことをやるだけでなく、共に悩み、共に決断するパートナーです。</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -192,7 +248,7 @@
                 <p class="mt-8 text-slate-500 max-w-2xl mx-auto">多くの事業が直面するボトルネックを解消し、拡大のサイクルを回します。</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8 mb-24">
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
                 <!-- 認知不足 -->
                 <div class="bg-white p-10 rounded-2xl shadow-sm border-t-4 border-yellow">
                     <div class="flex items-center justify-between mb-6">
@@ -232,6 +288,25 @@
                     <div class="bg-slate-50 p-4 rounded-lg">
                         <p class="text-[10px] font-bold text-navy tracking-widest uppercase mb-2">主なアプローチ</p>
                         <p class="text-xs text-slate-500 font-medium">自社主催イベント開催・セミナー・業界イベント出店・他社との協業施策等</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Era Message -->
+            <div class="max-w-4xl mx-auto mb-24">
+                <div class="bg-white/60 backdrop-blur-sm p-8 md:p-12 rounded-3xl border border-yellow/30 shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-yellow/10 rounded-full -mr-12 -mt-12"></div>
+                    <div class="relative z-10 text-center">
+                        <p class="text-navy leading-loose font-medium md:text-lg">
+                            そして今、この3つの不足は、<br class="hidden md:block">
+                            <span class="text-yellow-600 font-bold underline decoration-yellow/50 underline-offset-4">AI検索の普及によって、より顕在化しています。</span><br>
+                            問い合わせや商談の前に、企業はAIによって比較・選別される時代になりました.
+                        </p>
+                        <div class="w-12 h-[1px] bg-slate-200 mx-auto my-8"></div>
+                        <p class="text-navy leading-loose font-medium md:text-lg">
+                            そのとき、「認知・信頼・接点」の情報が十分に存在しない企業は、<br class="hidden md:block">
+                            <span class="font-bold">比較の候補から外れてしまいます。</span>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -277,31 +352,64 @@
                 <h2 class="font-mincho text-3xl font-bold text-navy section-title">具体的な支援プラン</h2>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="group bg-slate-50 p-12 border-b-4 border-slate-100 hover:border-yellow transition duration-500 relative shadow-sm">
-                    <span class="absolute top-8 right-10 text-6xl font-black text-slate-200 group-hover:text-yellow/20 transition duration-500 italic">01</span>
-                    <h3 class="font-mincho text-2xl font-bold text-navy mb-8 relative flex items-center">
-                        <span class="w-8 h-[2px] bg-yellow mr-4"></span>壁打ち・構想整理
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+                <!-- 01 -->
+                <div class="group bg-slate-50 p-10 border-b-4 border-slate-100 hover:border-yellow transition duration-500 relative shadow-sm">
+                    <span class="absolute top-8 right-10 text-5xl font-black text-slate-200 group-hover:text-yellow/20 transition duration-500 italic">01</span>
+                    <h3 class="font-mincho text-xl font-bold text-navy mb-6 relative flex items-center">
+                        <span class="w-6 h-[2px] bg-yellow mr-4"></span>壁打ち・構想整理
                     </h3>
-                    <p class="text-slate-500 text-sm mb-10 leading-loose">
+                    <p class="text-slate-500 text-sm mb-8 leading-loose min-h-[80px]">
                         経営者との対話により、事業の目的・価値・方向性を言語化します。どのフェーズでどの施策が適切かを客観的に整理し、迷いをなくします。
                     </p>
-                    <div class="border-t border-slate-200 pt-8">
-                        <span class="text-[10px] font-bold tracking-widest text-slate-400 uppercase block mb-2">Price</span>
-                        <p class="text-navy font-bold text-2xl font-mincho">50,000円 <span class="text-xs font-normal text-slate-400 font-sans">（税別）／ 90分</span></p>
+                    <div class="border-t border-slate-200 pt-6">
+                        <span class="text-[10px] font-bold tracking-widest text-slate-400 uppercase block mb-1">Price</span>
+                        <p class="text-navy font-bold text-xl font-mincho">50,000円 <span class="text-xs font-normal text-slate-400 font-sans">（税別）／ 90分</span></p>
                     </div>
                 </div>
-                <div class="group bg-slate-50 p-12 border-b-4 border-slate-100 hover:border-yellow transition duration-500 relative shadow-sm">
-                    <span class="absolute top-8 right-10 text-6xl font-black text-slate-200 group-hover:text-yellow/20 transition duration-500 italic">02</span>
-                    <h3 class="font-mincho text-2xl font-bold text-navy mb-8 relative flex items-center">
-                        <span class="w-8 h-[2px] bg-yellow mr-4"></span>立ち上げ・継続伴走
+
+                <!-- 02 -->
+                <div class="group bg-slate-50 p-10 border-b-4 border-slate-100 hover:border-yellow transition duration-500 relative shadow-sm">
+                    <span class="absolute top-8 right-10 text-5xl font-black text-slate-200 group-hover:text-yellow/20 transition duration-500 italic">02</span>
+                    <h3 class="font-mincho text-xl font-bold text-navy mb-6 relative flex items-center">
+                        <span class="w-6 h-[2px] bg-yellow mr-4"></span>広報部立ち上げ支援
                     </h3>
-                    <p class="text-slate-500 text-sm mb-10 leading-loose">
-                        新事業の立ち上げ期から参画し、PR・マーケティング・協業まで、一気通貫の動線設計と実務の実行支援を粘り強く行います。
+                    <p class="text-slate-500 text-sm mb-8 leading-loose min-h-[80px]">
+                        経営判断に影響を与える重要な機能として、広報部を設計します。AIも取り入れながら属人化せず、継続的に事業価値を伝えられる体制を設計します。
                     </p>
-                    <div class="border-t border-slate-200 pt-8">
-                        <span class="text-[10px] font-bold tracking-widest text-slate-400 uppercase block mb-2">Price</span>
-                        <p class="text-navy font-bold text-2xl font-mincho">月額 200,000円 <span class="text-xs font-normal text-slate-400 font-sans">（税別）〜</span></p>
+                    <div class="border-t border-slate-200 pt-6">
+                        <span class="text-[10px] font-bold tracking-widest text-slate-400 uppercase block mb-1">Price</span>
+                        <p class="text-navy font-bold text-xl font-mincho">200,000円 <span class="text-xs font-normal text-slate-400 font-sans">（税別）〜</span></p>
+                    </div>
+                </div>
+
+                <!-- 03 -->
+                <div class="group bg-slate-50 p-10 border-b-4 border-slate-100 hover:border-yellow transition duration-500 relative shadow-sm">
+                    <span class="absolute top-8 right-10 text-5xl font-black text-slate-200 group-hover:text-yellow/20 transition duration-500 italic">03</span>
+                    <h3 class="font-mincho text-xl font-bold text-navy mb-6 relative flex items-center">
+                        <span class="w-6 h-[2px] bg-yellow mr-4"></span>PR・広報施策代行
+                    </h3>
+                    <p class="text-slate-500 text-sm mb-8 leading-loose min-h-[80px]">
+                        目的と事業理解を踏まえたうえで、PR・広報施策の実行を担います。単発で終わらせず、次の判断や成長につながる形で情報を積み上げます。
+                    </p>
+                    <div class="border-t border-slate-200 pt-6">
+                        <span class="text-[10px] font-bold tracking-widest text-slate-400 uppercase block mb-1">Price</span>
+                        <p class="text-navy font-bold text-xl font-mincho">200,000円 <span class="text-xs font-normal text-slate-400 font-sans">（税別）〜</span></p>
+                    </div>
+                </div>
+
+                <!-- 04 -->
+                <div class="group bg-slate-50 p-10 border-b-4 border-slate-100 hover:border-yellow transition duration-500 relative shadow-sm">
+                    <span class="absolute top-8 right-10 text-5xl font-black text-slate-200 group-hover:text-yellow/20 transition duration-500 italic">04</span>
+                    <h3 class="font-mincho text-xl font-bold text-navy mb-6 relative flex items-center">
+                        <span class="w-6 h-[2px] bg-yellow mr-4"></span>研修・セミナー
+                    </h3>
+                    <p class="text-slate-500 text-sm mb-8 leading-loose min-h-[80px]">
+                        広報PRの考え方や、事業に活かすための設計視点を伝えます。AI時代における対応や、売上・選定につながる判断軸を整理します。
+                    </p>
+                    <div class="border-t border-slate-200 pt-6">
+                        <span class="text-[10px] font-bold tracking-widest text-slate-400 uppercase block mb-1">Price</span>
+                        <p class="text-navy font-bold text-xl font-mincho">応相談</p>
                     </div>
                 </div>
             </div>
@@ -316,7 +424,7 @@
                 <h2 class="font-mincho text-3xl font-bold text-navy section-title">支援実績</h2>
             </div>
 
-            <div class="bg-navy p-10 md:p-20 rounded-[3rem] text-white relative overflow-hidden border-b-[12px] border-yellow shadow-2xl">
+            <div class="bg-navy p-10 md:p-20 rounded-[3rem] text-white relative overflow-hidden border-b-[12px] border-yellow shadow-2xl mb-16">
                 <div class="absolute -top-20 -right-20 w-80 h-80 bg-yellow/10 rounded-full blur-[100px]"></div>
                 
                 <h3 class="font-mincho text-xl md:text-3xl font-bold text-center mb-16 tracking-widest leading-relaxed">
@@ -366,6 +474,48 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Seminar Lineup (Combined Card) -->
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-slate-50 p-6 md:p-8 rounded-2xl border border-slate-100 shadow-sm">
+                    <div class="text-center mb-8">
+                        <h3 class="font-mincho text-xl font-bold text-navy mb-2">研修・セミナー実績</h3>
+                        <p class="text-slate-500 text-[13px]">各テーマに合わせ、ワークショップ形式や講演形式での提供が可能です。</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 gap-4">
+                        <!-- Item 01 -->
+                        <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 p-4 bg-white rounded-xl border border-slate-100 transition hover:shadow-md">
+                            <div class="shrink-0">
+                                <span class="inline-block px-2 py-0.5 bg-yellow text-[9px] font-bold text-navy rounded uppercase tracking-wider">経営者向け</span>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-mincho text-base font-bold text-navy leading-relaxed">なぜ今、広報設計が売上に直結するのか <span class="text-xs font-normal text-slate-500 ml-2">（PR思考整理セミナー）</span></h4>
+                            </div>
+                        </div>
+
+                        <!-- Item 02 -->
+                        <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 p-4 bg-white rounded-xl border border-slate-100 transition hover:shadow-md">
+                            <div class="shrink-0">
+                                <span class="inline-block px-2 py-0.5 bg-navy text-[9px] font-bold text-white rounded uppercase tracking-wider">経営者・広報責任者向け</span>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-mincho text-base font-bold text-navy leading-relaxed">属人化させない広報のつくり方 <span class="text-xs font-normal text-slate-500 ml-2">（広報部立ち上げ研修）</span></h4>
+                            </div>
+                        </div>
+
+                        <!-- Item 03 -->
+                        <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 p-4 bg-white rounded-xl border border-slate-100 transition hover:shadow-md">
+                            <div class="shrink-0">
+                                <span class="inline-block px-2 py-0.5 bg-yellow text-[9px] font-bold text-navy rounded uppercase tracking-wider">経営者向け</span>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-mincho text-base font-bold text-navy leading-relaxed">AI検索時代に選ばれる会社・埋もれる会社 <span class="text-xs font-normal text-slate-500 ml-2">（広報PR×AIセミナー）</span></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -375,7 +525,7 @@
             <div class="flex flex-col md:flex-row gap-20 items-center mb-24">
                 <div class="w-full md:w-2/5 relative">
                     <div class="aspect-[4/5] bg-slate-100 relative group overflow-hidden rounded-2xl shadow-xl image-container">
-                        <img src="https://lh3.googleusercontent.com/u/0/d/1YTR1PzDVKUiuaE3qWNWx_HfynfEu_37s=w1200-h1200" 
+                        <img src="https://lh3.googleusercontent.com/d/1YTR1PzDVKUiuaE3qWNWx_HfynfEu_37s" 
                              alt="木村このみ プロフィール写真" 
                              onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-full text-slate-400 text-xs font-bold\'>[Profile Image]</div>'"
                              class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
@@ -409,24 +559,31 @@
             <div class="bg-slate-50 p-8 md:p-16 rounded-[2rem] border-t border-slate-100 shadow-sm relative overflow-hidden">
                 <div class="absolute top-0 right-0 w-32 h-32 bg-yellow/5 rounded-full -mr-16 -mt-16"></div>
                 <div class="max-w-3xl mx-auto">
-                    <div class="text-center mb-8">
+                    <div class="text-center mb-12">
                         <span class="text-xs font-bold tracking-[0.5em] text-yellow-600 uppercase block mb-4">Message</span>
-                        <h3 class="font-mincho text-xl md:text-2xl font-bold text-navy mb-12 text-center leading-relaxed border-b border-yellow/30 pb-6 inline-block tracking-widest">
+                        <h3 class="font-mincho text-xl md:text-2xl font-bold text-navy text-center leading-relaxed border-b border-yellow/30 pb-6 inline-block tracking-widest">
                             事業の価値が正しく伝わり、前に進む支援を。
                         </h3>
                     </div>
-                    <div class="space-y-8 text-slate-600 font-medium leading-loose text-center md:text-left">
-                        <p>これまでの支援の中で、</p>
-                        <p class="text-navy text-lg italic bg-white inline-block px-4 py-2 rounded shadow-sm font-bold">
-                            「迷いなく外側の景色を一緒に見に行こうとしてくれる」
-                        </p>
-                        <br>
-                        <p class="text-navy text-lg italic bg-white inline-block px-4 py-2 rounded shadow-sm font-bold">
-                            「単に事業を整理して外に見せる、そんな枠に収まるものではなかった」
-                        </p>
-                        <p>という声をいただきました。<br>
-                        PRやマーケティングは目的ではなく、事業成長のための手段。</p>
-                        <p>経営者と対話しながら事業の価値を言語化し、成長につながる形で社会とつなげていく支援を行っています。</p>
+                    <div class="space-y-8 text-slate-600 font-medium leading-loose text-left">
+                        <p>良い事業であることと、選ばれることは、必ずしも同義ではありません。</p>
+                        <p>どれだけ想いがあり、強みがあっても、それが伝わらなければ、存在しないのと同じです。</p>
+                        
+                        <p class="pt-4">私は、企業が大切にしてきた想い・強み・背景を整理し、</p>
+                        <div class="py-4 space-y-2">
+                            <p class="text-navy font-bold text-lg pl-4 border-l-4 border-yellow">「なぜこの事業なのか」</p>
+                            <p class="text-navy font-bold text-lg pl-4 border-l-4 border-yellow">「なぜこの会社なのか」</p>
+                        </div>
+                        <p>が伝わる形に言語化することから支援を始めます。</p>
+
+                        <p class="pt-4">その結果として、<br>認知が広がり、信頼が積み重なり、出会いが生まれる。</p>
+                        <p class="font-bold text-navy">事業は少しずつ、しかし確実に前へ進んでいきます。</p>
+
+                        <div class="w-12 h-[1px] bg-slate-300 my-8"></div>
+
+                        <p>PRやマーケティングは目的ではありません。</p>
+                        <p>事業成長のために、今どの順番で、何を積み上げるべきか。</p>
+                        <p class="text-navy font-bold text-lg">そのプロセスに本気で向き合い、経営者と伴走します。</p>
                     </div>
                 </div>
             </div>
@@ -465,14 +622,10 @@
 
     <!-- Scripts -->
     <script>
-        // --- 設定エリア: GoogleフォームのURL ---
         const GOOGLE_FORM_URL = "https://forms.gle/thWdvmoJYHYFRBi96"; 
 
         function openContactForm() {
-            if (GOOGLE_FORM_URL === "" || GOOGLE_FORM_URL === "#") {
-                // 万が一URLが空の場合のフォールバック
-                console.warn("Google Form URL is not set.");
-            } else {
+            if (GOOGLE_FORM_URL !== "" && GOOGLE_FORM_URL !== "#") {
                 window.open(GOOGLE_FORM_URL, '_blank');
             }
         }
